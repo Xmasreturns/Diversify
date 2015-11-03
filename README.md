@@ -14,6 +14,9 @@ As more items become part of your portfolio, they will inevitably become harder 
 ##Design choices
 Diversify by default will not track extra or missing quantities of items previously marked as investments. That means that if you choose to "invest" in 100 Silk Scraps and NPC them  instead of selling them, the investment will be considered a loss.
 
-In cases of crafting an item to be sold using past investments, the sale transaction can later be marked as part of an investment by linking portfolio items. If additional item costs are involved (e.g. items purchased from NPC), they must be added manually in the Investments tab. A simple calculator is included to simplify this calculation. 
+In cases of crafting an item to be sold using past investments, the sale transaction can later be marked as part of an investment by linking portfolio items. If additional item costs are involved (e.g. items purchased from NPC), they must be added manually in the Investments tab. A simple calculator is included to simplify this calculation.
 
 Note: Cases where only a subset of a transaction is investment-related are not automatically handled. As a result, these must be corrected manually in the Investments tab.
+
+##Link
+https://gw2-diversify.herokuapp.com/

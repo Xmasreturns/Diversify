@@ -1,0 +1,23 @@
+var express = require('express');
+var browserify = require('browserify');
+var exphbs = require('express-handlebars');
+var React = require('react');
+var jsx = require('node-jsx');
+var app = express();
+
+app.set('port', (process.env.PORT || 4500));
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+
+
+
+var server = require('http').createServer(app);
+server.listen((process.env.PORT || app.get('port')), function(){
+  console.log("Express server listening on port %d ", server.address().port);
+});
+
+jsx.install();
+
+app.get('/', function(req, res){
+  res.render('index.jsx');
+});
