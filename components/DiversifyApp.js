@@ -2,6 +2,8 @@
 
 var React = require('react');
 var SearchBar = require('./SearchBar')
+var ListingTable = require('./ListingTable')
+var ListingRow = require('./ListingRow')
 
 module.exports = DiversifyApp = React.createClass({
   getInitialState: function(props){
@@ -9,65 +11,62 @@ module.exports = DiversifyApp = React.createClass({
 
     return {
       apikey: '',
-      keys: []
+      update : 0
     };
   },
 
   handleAPIKey: function(apikey) {
-    this.state.keys.push(apikey);
-      this.setState({
-          apikey : apikey.key,
-          keys: this.state.keys
-      });
+    if (apikey === this.state.apikey){
+        this.setState({
+            update: 2
+        });
+      }
+    else{
+        this.setState({
+          apikey : apikey,
+          update: 1
+        });
+      }
+      //082E318D-677B-B144-9617-01363B2B80E2574ED925-409F-49B1-B2A9-AC32D940E244
   },
-
-  render: function(){
-    var keys = this.state.keys.map(function(key){
-      return <Key key={key.num} test={key.test}></Key>
+  getData: function(){
+    console.log("Get");
+    $.getJSON('https://api.guildwars2.com/v2/commerce/transactions/history/sells', { access_token : this.state.apikey }, function(data){
+      _.forEach(data, function(n, key){
+        list.push(n);
+      });
     });
+  },
+  render: function(){
+    if(this.state.update == 1)
+      this.getData();
     return(
       <div className="listings-main">
-        <SearchBar/>
+        <SearchBar onSubmit={this.handleAPIKey}/>
         <table>
           <thead>
             <tr>
+              <td colSpan='4'>SELLS</td>
+            </tr>
+            <tr>
               <td>
-                ASDASFD
+                id
+              </td>
+              <td>
+                item
+              </td>
+              <td>
+                quantity
+              </td>
+              <td>
+                price
               </td>
             </tr>
           </thead>
-          <tbody>
-            {keys}
-            <tr>
-              <td>
-                {this.state.apikey}
-              </td>
-              <td>
-                AWRWR
-              </td>
-            </tr>
-          </tbody>
+          <ListingTable listings={list}/>
         </table>
       </div>
     )
   }
 })
-
-
-var Key = React.createClass({
-  getInitialState: function(){
-    return {
-      num: this.props.num,
-      test: this.props.test
-    }
-  },
-  render: function(){
-    return (
-      <tr>
-        <td>{this.props.num}</td>
-        <td>{this.props.test}</td>
-        <td>64545</td>
-      </tr>
-    )
-  }
-});
+ var list = []

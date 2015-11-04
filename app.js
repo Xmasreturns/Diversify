@@ -1,13 +1,11 @@
-/** @jsx React.DOM */ 
-
+/** @jsx React.DOM */
 var React = require('react');
-var DiversifyApp = require('./components/DiversifyApps');
-
-// Snag the initial state that was passed from the server side
-var initialState = JSON.parse(document.getElementById('initial-state').innerHTML)
+var ReactDOM = require('react-dom');
+var DiversifyApp = require('./components/DiversifyApp');
+var _ = require('lodash');
 
 // Render the components, picking up where react left off on the server
-React.renderComponent(
-  <DiversifyApp tweets={initialState}/>,
+ReactDOM.render(
+  <DiversifyApp/>,
   document.getElementById('react-app')
 );

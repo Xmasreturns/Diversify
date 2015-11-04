@@ -2,14 +2,16 @@
 var React = require('react');
 
 module.exports = SearchBar = React.createClass({
+    propTypes: {
+         value:      React.PropTypes.string,
+         onSubmit:   React.PropTypes.func
+     },
     handleSubmit: function(e) {
       e.preventDefault();
-      console.log("2")
       var apikey = this.refs.key.value.trim();
       if (!apikey)
         return;
-      this.props.handleAPIKey({num: apikey, test: "34"});
-      console.log("1")
+      this.props.onSubmit(apikey);
     },
     render: function() {
         return (

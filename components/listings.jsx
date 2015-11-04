@@ -10,6 +10,7 @@ var ListingRow = React.createClass({
   render: function(){
     return (
       <tr>
+          <td>{this.props.listing.id}</td>
           <td>{this.props.listing.item}</td>
           <td>{this.props.listing.quantity}</td>
           <td>{this.props.listing.price}</td>
@@ -22,21 +23,12 @@ var ListingTable = React.createClass({
   render: function(){
     var rows = [];
     if (!this.props.listings)
-      return ( <table /> )
+      return ( <tbody /> )
     this.props.listings.forEach(function(listing) {
         rows.push(<ListingRow listing={listing} key={listing.id} />);
     }.bind(this));
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-        </table>
+      <tbody>{rows}</tbody>
     );
   }
 });
