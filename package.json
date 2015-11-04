@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Diversify is a mobile portal to your Guild Wars 2 commerce and investments. Given an official API key, it can:\r * Show a history of items that you've purchased and sold\r * Follow any purchases that you tag as investments\r * Watch the price of bookmarked items\r * Summarize the performance of your past investments\r * Link portfolio items to track them in tandem",
   "main": "server.js",
+  "engines": {
+   "node": "4.1.1"
+  },
   "scripts": {
     "watch": "watchify app.js -o public/js/bundle.js -v",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "browserify": "browserify app.js -o public/js/bundle.js",
+    "browserify": "browserify app.js -o | uglifyjs > public/js/bundle.js",
     "build": "npm run browserify ",
     "start": "node server.js"
   },
