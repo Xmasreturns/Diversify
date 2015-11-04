@@ -96,14 +96,13 @@ process.umask = function() { return 0; };
 var React = require('react');
 var ReactDOM = require('react-dom');
 var DiversifyApp = require('./components/DiversifyApp');
-var _ = require('lodash');
 
 // Render the components, picking up where react left off on the server
 ReactDOM.render(
   React.createElement(DiversifyApp, null),
   document.getElementById('react-app')
 );
-},{"./components/DiversifyApp":3,"lodash":7,"react":164,"react-dom":8}],3:[function(require,module,exports){
+},{"./components/DiversifyApp":3,"react":164,"react-dom":8}],3:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
