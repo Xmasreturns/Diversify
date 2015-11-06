@@ -10,7 +10,8 @@
     "watch": "watchify app.js -o public/js/bundle.js -v",
     "browserify": "browserify app.js -o | uglifyjs > public/js/bundle.js",
     "build": "npm run browserify ",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "npm run browserify && npm start"
   },
   "repository": {
     "type": "git",
