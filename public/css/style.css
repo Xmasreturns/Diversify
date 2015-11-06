@@ -1,0 +1,101 @@
+body {
+}
+
+nav .navbutton {
+      font-size: 1em;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    nav .navbutton:hover {
+      color: white;
+    }
+    nav .navbutton:active {
+    }
+
+.navbar {
+  background-color: #373737;
+}
+
+.nav {
+  list-style: none;
+  margin: 0;
+  display: inline-block;
+}
+
+.nav li {
+  display: inline;
+  position: relative;
+  padding-left: 3em;
+  font-size: 1.25em;
+  bottom: 0.2em;
+  font-family: 'News Cycle', sans-serif;
+}
+
+.navrow {
+  max-width: 75em;
+  display: inline-block;
+}
+
+.header {
+  font-size: 2.5em;
+  color: #fff;
+  font-family: 'Ovo', serif;
+  padding: 0.5em;
+}
+
+.header:hover {
+  color: #fff;
+}
+
+.keyform{
+  display: inline;
+}
+.keyform input[type="text"]{
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #373737;
+  border-width: 0;
+  width: 500px;
+  height: 2em;
+  display: inline;
+}
+
+.keyform input[type="submit"]{
+  height: 2em;
+  display: inline;
+  border-width: 0;
+}
+
+.listrow{
+  max-width: 100%;
+}
+
+.listingtable {
+  margin-left:auto;
+  margin-right:auto;
+  border-collapse:collapse;
+  border: none;
+  width: 90%;
+}
+
+.listhead {
+  text-transform: uppercase;
+  background: #777;
+}
+.listhead td {
+  font-size: 1.25rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+.listlabel {
+  text-transform: uppercase;
+}
+.listlabel td {
+  background: #999;
+}
+.listrows {
+  background: #eee;
+  border-bottom: 1px solid #999;
+}
+.listrows td {
+  background: #eee;
+}

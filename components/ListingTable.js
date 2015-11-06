@@ -1,5 +1,7 @@
 var React = require('react');
 var _ = require('lodash');
+var ListingRow = require('./ListingRow')
+
 
 module.exports = ListingTable = React.createClass({
   getInitialState: function(props){
@@ -40,12 +42,12 @@ module.exports = ListingTable = React.createClass({
         rows.push(<ListingRow listing={listing} key={listing.id} />);
     });
     return (
-      <table>
+      <table className="listingtable">
         <thead>
-          <tr>
+          <tr className="listhead">
             <td colSpan="4">{this.props.time} {this.props.type}</td>
           </tr>
-          <tr>
+          <tr className="listlabel">
             <td>id</td>
             <td>item</td>
             <td>quantity</td>
