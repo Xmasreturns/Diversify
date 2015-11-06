@@ -1,6 +1,5 @@
 var express = require('express');
 var browserify = require('browserify');
-var exphbs = require('express-handlebars');
 var React = require('react');
 var path = require('path')
 var jsx = require('node-jsx').install();
