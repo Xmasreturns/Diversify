@@ -8,17 +8,17 @@ module.exports = ListingRow = React.createClass({render: function() {
       s_s = '',
       c_s = '';
     if (g != 0) {
-      var g_s = <img src='/static/img/gold.png'/>;
+      var g_s = <img src='/static/img/Gold.png'/>;
     } else {
       g = ''
     }
     if (s != 0) {
-      var s_s = <img src='/static/img/silver.png'/>;
+      var s_s = <img src='/static/img/Silver.png'/>;
     } else {
       s = ''
     }
     if (c != 0) {
-      var c_s = <img src='/static/img/copper.png'/>;
+      var c_s = <img src='/static/img/Copper.png'/>;
     } else {
       c = ''
     }
