@@ -66,17 +66,26 @@ table.listingtable {
 .top-bar.expanded {
   background: #333333;
 }
+
+.login {
+  border-width: 2px;
+  margin: auto;
+  display: inline;
+}
+
 @media only screen and (min-width: 40.0em) {
   .top-bar {
     text-align: center;
   }
   ul.center-buttons {
+    margin-left: 7em;
     display: inline-block;
   }
   .top-bar-section li:not(.has-form) a:not(.button){
     line-height: 3.2rem;
   }
-  ul.center-buttons li a{
+  ul.center-buttons li a,
+  ul.right li a{
     font-size:1.2rem;
     font-family: "News Cycle"
   }
@@ -96,5 +105,14 @@ table.listingtable {
   section.top-bar-section{
     height: 3.2rem;
     line-height: 3.2rem;
+    width:90%;
+    margin: auto;
+  }
+  .login-dropdown {
+    @extend .f-dropdown;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
   }
 }
