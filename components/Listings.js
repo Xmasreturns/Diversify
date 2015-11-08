@@ -31,22 +31,23 @@ module.exports = ListingRow = React.createClass({
         //082E318D-677B-B144-9617-01363B2B80E2574ED925-409F-49B1-B2A9-AC32D940E244
     },
   render: function(){
+
     return (
       <div>
         <SearchBar onSubmit={this.handleAPIKey}/>
         <div className="listrow">
-          <div className="large-3 columns">
-            <ListingTable time="history" type="sells" apikey={this.state.apikey}/>
-          </div>
-          <div className="large-3 columns">
-            <ListingTable time="history" type="buys" apikey={this.state.apikey}/>
-          </div>
-          <div className="large-3 columns">
-            <ListingTable time="current" type="sells" apikey={this.state.apikey}/>
-          </div>
-          <div className="large-3 columns">
-            <ListingTable time="current" type="buys" apikey={this.state.apikey}/>
-          </div>
+            <div className="large-6 columns">
+              <ListingTable time="history" type="sells" apikey={this.state.apikey}/>
+            </div>
+            <div className="large-6 columns">
+              <ListingTable time="history" type="buys" apikey={this.state.apikey}/>
+            </div>
+            <div className="large-6 columns">
+              <ListingTable time="current" type="sells" apikey={this.state.apikey}/>
+            </div>
+            <div className="large-6 columns">
+              <ListingTable time="current" type="buys" apikey={this.state.apikey}/>
+            </div>
         </div>
       </div>
     );
