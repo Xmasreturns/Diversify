@@ -13,46 +13,28 @@ module.exports = ListingTable = React.createClass({
     };
   },
   handleData: function(data){
-    var list = JSON.parse(data);
     var i = [];
-    _.forEach(list, function(d){
+    _.forEach(data, function(d){
       i.push(d.item_id);
     });
     i = _.uniq(i);
-    this.setState({update:2, listings: list});
+    this.setState({update:2, listings: data});
     var s = i.join(",")
-    var request = new XMLHttpRequest();
-    request.open('GET', '/database?id=' + s, true);
-    request.send();
-    request.onload = function() {
-      if (request.status >= 200 && request.status < 400) {
-          var docs = JSON.parse(request.responseText)
-          this.setState({docs: docs})
-      } else {
-        console.log("auth error")
-      }
-    }.bind(this);
-
-
+    var t = this;
+    $.getJSON('/database', {id: s}, function(res){
+        t.setState({docs: res})
+      });
   },
   getData: function(){
+    var t = this;
     if (this.props.apikey === '')
       return []
 
-    var request = new XMLHttpRequest();
-    request.open('GET', 'https://api.guildwars2.com/v2/commerce/transactions/' + this.props.time + '/' + this.props.type +  '?access_token=' + this.props.apikey, true);
-    request.send();
-    request.onload = function() {
-      if (request.status >= 200 && request.status < 400) {
-          this.handleData(request.responseText);
-      } else {
-        console.log("auth error")
-      }
-    }.bind(this);
+    var url = 'https://api.guildwars2.com/v2/commerce/transactions/' + t.props.time + '/' + t.props.type
 
-    request.onerror = function() {
-      console.log(" error")
-    };
+    $.getJSON(url, {access_token : t.props.apikey}, function(res){
+          t.handleData(res);
+      });
 
   },
   render: function(){
@@ -60,7 +42,7 @@ module.exports = ListingTable = React.createClass({
     if (this.state.update == 0)
       this.getData();
     this.state.listings.forEach(function(listing) {
-      var doc;
+      var doc = [];
       this.state.docs.forEach(function(d) {
         if (d._id == listing.item_id)
           doc = d;

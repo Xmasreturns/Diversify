@@ -3,16 +3,21 @@ var React = require('react');
 module.exports = NavBar = React.createClass({
     render: function() {
         return (
-          <div className="navbar">
-            <nav className="navrow">
-              <a className="header" href="/">Diversify</a>
-              <ul className="nav">
-                <li><a className="navbutton" href="/history">History</a></li>
-                <li><a className="navbutton" href="/bookmarks">Bookmarks</a></li>
-                <li><a className="navbutton" href="/investments">Investments</a></li>
+          <nav className="top-bar" data-topbar>
+            <ul className="title-area">
+              <li className="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+            </ul>
+            <div className="logo">
+              <a href="/">Diversify</a>
+            </div>
+            <section className="top-bar-section">
+              <ul className="center-buttons">
+                <li><a href="/history">History</a></li>
+                <li><a href="/bookmarks">Bookmarks</a></li>
+                <li><a href="/investments">Investments</a></li>
               </ul>
-            </nav>
-        </div>
+            </section>
+          </nav>
         );
     }
 });

@@ -12,18 +12,48 @@ var itemSchema = new Schema({
   img: String,
   type_id: Number,
   sub_type_id: Number
-}, {collection : 'items'})
+}, {
+  collection: 'items'
+})
+
+var userSchema = new Schema({
+  user: String,
+  pass: String,
+  apikey: String,
+  bookmarks: [Number],
+  investments: [{}]
+}, {
+  collection: 'users'
+})
 
 var Item = mongoose.model('Item', itemSchema)
+var User = mongoose.model('User', itemSchema)
 
 module.exports = {
   getItemData: function(id, res) {
     Item.find({
-      '_id' : { $in : id }
-    },
-    'name img',
-    function (err, docs) {
-      res.send(docs);
-    })
+        '_id': {
+          $in: id
+        }
+      },
+      'name img',
+      function(err, docs) {
+        res.send(docs);
+      })
+  },
+  createUserData: function(data, res) {
+    User.create({
+        user: data.user,
+        hash: data.hash,
+        apikey: data.apikey,
+        bookmarks: [],
+        investments: [{}]
+      },
+      function(err, newuser) {
+        if (err)
+          return console.log("error : " + err);
+        console.log(newuser);
+      }
+    )
   }
 }
