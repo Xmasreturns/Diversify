@@ -1,0 +1,118 @@
+.keyform {
+  display: inline;
+}
+.keyform input[type="text"] {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #373737;
+  border-width: 0;
+  width: 500px;
+  height: 2em;
+  display: inline;
+}
+.keyform input[type="submit"] {
+  height: 2em;
+  display: inline;
+  border-width: 0;
+}
+.listrow {
+  max-width: 95em;
+  margin: 0 auto;
+  padding: 0;
+}
+table.listingtable {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  border: none;
+  width: 100%;
+  table-layout: auto;
+}
+.listhead {
+  text-transform: uppercase;
+  background: #777;
+}
+.listhead td {
+  font-size: 1.25rem;
+  padding: 1rem;
+  color: #fff;
+}
+.listlabel {
+  text-transform: uppercase;
+}
+.listlabel td {
+  background: #999;
+  font-size: 0.75em;
+}
+.listrows {
+  background: #eee;
+  border-bottom: 1px solid #999;
+}
+.listrows td {
+  background: #eee;
+}
+.listingcol {
+  width: 50%;
+  float: left;
+}
+.logo a {
+  color: #fff;
+  font-family: 'Ovo', serif;
+  font-size: 1.5em;
+  padding-left: 0.3em;
+}
+.menu-icon {
+  padding-top: 1.2rem;
+}
+.top-bar.expanded {
+  background: #333333;
+}
+
+.login {
+  border-width: 2px;
+  margin: auto;
+  display: inline;
+}
+
+@media only screen and (min-width: 40.0em) {
+  .top-bar {
+    text-align: center;
+  }
+  ul.center-buttons {
+    margin-left: 7em;
+    display: inline-block;
+  }
+  .top-bar-section li:not(.has-form) a:not(.button){
+    line-height: 3.2rem;
+  }
+  ul.center-buttons li a,
+  ul.right li a{
+    font-size:1.2rem;
+    font-family: "News Cycle"
+  }
+  .logo {
+    top:2px;
+    position: absolute;
+    z-index: 999;
+  }
+  .logo a {
+    font-size: 2em;
+    margin-left: 1em;
+  }
+  nav.top-bar {
+    height: 3.2rem;
+    line-height: 3.2rem;
+  }
+  section.top-bar-section{
+    height: 3.2rem;
+    line-height: 3.2rem;
+    width:90%;
+    margin: auto;
+  }
+  .login-dropdown {
+    @extend .f-dropdown;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+  }
+}
