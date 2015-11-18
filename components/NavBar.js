@@ -2,6 +2,12 @@ var React = require('react');
 
 module.exports = NavBar = React.createClass({
     render: function() {
+      var login = ''
+      if (this.props.user == null){
+        var login = <a href="#" data-reveal-id="myModal">Login/Register</a>
+      } else {
+        var login = <a href="#">{this.props.user}</a>
+      }
         return (
           <div>
             <nav className="top-bar" data-topbar  role="navigation">
@@ -13,7 +19,7 @@ module.exports = NavBar = React.createClass({
               </div>
               <section className="top-bar-section">
                 <ul className="right">
-                  <li><a href="#" data-reveal-id="myModal">Login/Register</a></li>
+                  <li>{login}</li>
                 </ul>
                 <ul className="center-buttons">
                   <li><a href="/history">History</a></li>
@@ -32,7 +38,8 @@ module.exports = NavBar = React.createClass({
                       <label>Password</label>
                       <input type="password" className="form-control" id="pass"/>
                   </div>
-                  <button type="submit" className="btn btn-warning btn-lg">Signup</button>
+                  <button type="submit" className="btn btn-warning btn-lg">Register</button>
+                  <button type="submit" className="btn btn-warning btn-lg">Login</button>
               </form>
             </div>
           </div>

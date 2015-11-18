@@ -20,7 +20,7 @@ app.use('/static', express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(session({secret: 'teststring', resave: false, saveUninitialized: false}));
+app.use(session({secret: 'teststring', resave: false, saveUninitialized: false, cookie: {expires: new Date(Date.now() + 2592000000)}}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -36,10 +36,16 @@ app.get('/database', function(req, res) {
   db.getItemData(d, res)
 });
 
-app.post('/login', function(req, res) {
-  var user = req.body.user;
-  var pass = req.body.pass;
-});
+app.get('/auth/user', function(req,res) {
+  if (req.user != undefined)
+    res.send(req.user.user);
+})
+
+app.post('/login', passport.authenticate('login', {
+  successRedirect: '/history',
+  failureRedirect: '/bookmark'
+})
+);
 
 app.post('/register', passport.authenticate('register', {
   successRedirect: '/history',
@@ -54,7 +60,6 @@ app.get('*', function(req, res) {
 
 //Passport Configs
 passport.serializeUser(function(user, done) {
-  console.log(user.id)
   done(null, user.id);
 });
 
@@ -62,7 +67,6 @@ passport.deserializeUser(function(id, done) {
   db
     .User
     .findById(id, function(err, user) {
-      console.log(id)
       if (err) {
         return done(err);
       }
@@ -98,12 +102,19 @@ passport.use('login', new Strategy({usernameField: 'user', passwordField: 'pass'
   db
     .User
     .findOne({'user': user}, function(err, u) {
-      if (err)
+      if (err){
+        console.log (err)
         return done(err)
-      if (!u)
+      }
+      if (!u){
+        console.log("user wrong")
         return done(null, false, "user not found")
-      if (!bcrypt.compareSync(pass, u.pass))
+      }
+      if (!bcrypt.compareSync(pass, u.pass)){
+        console.log("pass wrong")
         return done(null, false, "wrong password")
+      }
+      console.log("login success")
       return done(null, u)
     })
 }))

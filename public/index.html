@@ -23,6 +23,14 @@
           $.post("/register", p, function(){
             window.location.replace("/");
           })
+        })
+    $("#login").submit(function(e) {
+      e.preventDefault();
+      var p = { user: $("#user").val(),
+                pass: $("#pass").val()}
+          $.post("/login", p, function(){
+            window.location.replace("/");
+          })
         }
         )
   </script>
