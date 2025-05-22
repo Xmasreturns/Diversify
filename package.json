@@ -4,7 +4,7 @@
   "description": "Diversify is a mobile portal to your Guild Wars 2 commerce and investments. Given an official API key, it can:\r * Show a history of items that you've purchased and sold\r * Follow any purchases that you tag as investments\r * Watch the price of bookmarked items\r * Summarize the performance of your past investments\r * Link portfolio items to track them in tandem",
   "main": "server.js",
   "engines": {
-    "node": "4.1.1"
+    "node": "20.x"
   },
   "scripts": {
     "watch": "watchify app.js -o public/js/bundle.js -v",
@@ -24,23 +24,22 @@
   },
   "homepage": "https://github.com/Xmasreturns/Diversify#readme",
   "dependencies": {
-    "bcrypt": "^0.8.5",
-    "body-parser": "^1.14.1",
-    "browserify": "^12.0.1",
-    "cookie-parser": "^1.4.0",
-    "express": "^4.13.3",
-    "express-session": "^1.12.1",
-    "history": "^1.13.0",
-    "lodash": "^3.10.1",
-    "mongodb": "^2.0.47",
-    "mongoose": "^4.2.4",
-    "passport": "^0.3.0",
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "browserify": "^17.0.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.19.2",
+    "express-session": "^1.18.1",
+    "history": "^5.3.0",
+    "jquery": "^3.7.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.15.0",
+    "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "react": "^0.14.2",
-    "react-dom": "^0.14.2",
-    "react-router": "^1.0.0-rc4",
-    "reactify": "^1.1.1",
-    "uglifyjs": "^2.4.10"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^6.25.0",
+    "uglify-js": "^3.19.3"
   },
   "browserify": {
     "transform": [
